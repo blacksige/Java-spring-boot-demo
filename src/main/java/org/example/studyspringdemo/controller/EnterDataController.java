@@ -19,25 +19,30 @@ public class EnterDataController {
     private EnterDataService enterDataService;
 
     @GetMapping(value = "/getAllData")
-    public List<EnterData> getAllData(HttpServletRequest request) {
+    public ApiResponse<List<EnterData>> getAllData(HttpServletRequest request) {
         String id = IpUtil.getClientIp(request);
-        System.out.println(id);
-        return enterDataService.getEnterDataById(id);
+        List<EnterData> enterDatas = enterDataService.getEnterDataById(id);
+        return new  ApiResponse<>(200, "查询成功！", enterDatas);
     }
 
     @PostMapping(value = "/setAllData")
-    public void setAllData(@RequestBody EnterDataOtd enterDataOtd, HttpServletRequest request) {
+    public ApiResponse<Void> setAllData(@RequestBody EnterDataOtd enterDataOtd, HttpServletRequest request) {
         EnterData enterData = new EnterData();
         String id = IpUtil.getClientIp(request);
 
         enterData.setId(id);
         enterData.setTextarea(enterDataOtd.getTextarea());
         enterDataService.updateEnterData(enterData);
+        return new ApiResponse<> (200, "保存成功！",null);
     }
 
     @PostMapping(value = "/deleteData")
-    public void deleteData(HttpServletRequest request) {
+    public ApiResponse<Void> deleteData(HttpServletRequest request) {
         String id = IpUtil.getClientIp(request);
         enterDataService.deleteEnterData(id);
+        return new ApiResponse<> (200, "删除成功！",null);
     }
 }
+
+
+

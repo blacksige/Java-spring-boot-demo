@@ -18,14 +18,15 @@ public class HistoryController {
     private HistoryService historyService;
 
     @GetMapping(value = "/getHistory")
-    public List<History> getHistory(HttpServletRequest request) {
+    public  ApiResponse<List<History>> getHistory(HttpServletRequest request) {
         String id = IpUtil.getClientIp(request);
         System.out.println(id);
-        return historyService.getHistoryById(id);
+        List<History> historys = historyService.getHistoryById(id);
+        return new  ApiResponse<>(200, "Success!", historys);
     }
 
     @PostMapping(value = "/setHistory")
-    public void setHistory(@RequestBody HistoryOtd historyOtd, HttpServletRequest request) {
+    public ApiResponse<Void> setHistory(@RequestBody HistoryOtd historyOtd, HttpServletRequest request) {
         History history = new History();
         String id = IpUtil.getClientIp(request);
 
@@ -33,11 +34,15 @@ public class HistoryController {
         history.setDay(historyOtd.getDay());
         history.setName(historyOtd.getName());
         historyService.saveHistory(history);
+        return new ApiResponse<> (200, "保存成功！",null);
+
     }
 
     @PostMapping(value = "/deleteData")
-    public void deleteData(HttpServletRequest request) {
+    public ApiResponse<Void> deleteData(HttpServletRequest request) {
         String id = IpUtil.getClientIp(request);
         historyService.deleteHistory(id);
+        return new ApiResponse<> (200, "保存成功！",null);
     }
 }
+
