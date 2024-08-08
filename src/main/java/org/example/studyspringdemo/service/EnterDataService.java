@@ -18,7 +18,7 @@ public class EnterDataService {
     }
 
     public void updateEnterData(EnterData enterData) {
-        enterDataRepository.saveAndFlush(enterData);
+        enterDataRepository.save(enterData.getId(), enterData.getTextarea());
     }
 
     public void deleteEnterData(String id) {

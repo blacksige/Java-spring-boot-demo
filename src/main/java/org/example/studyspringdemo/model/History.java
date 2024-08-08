@@ -6,12 +6,20 @@ import lombok.Data;
 @Entity(name = "history")
 @Data
 public class History {
-
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Integer  index;
     private String  id;
     private String  name;
-    @Id
     private String  day;
 
+    public Integer getIndex() {
+        return index;
+    }
+
+    public void setIndex(Integer index) {
+        this.index = index;
+    }
 
     public String getId() {
         return id;

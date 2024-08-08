@@ -8,8 +8,18 @@ import lombok.Data;
 public class EnterData {
 
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Integer  index;
     private String  id;
     private String  textarea;
+
+    public Integer getIndex() {
+        return index;
+    }
+
+    public void setIndex(Integer index) {
+        this.index = index;
+    }
 
     public String getId() {
         return id;

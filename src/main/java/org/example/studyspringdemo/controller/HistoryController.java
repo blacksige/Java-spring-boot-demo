@@ -22,7 +22,7 @@ public class HistoryController {
         String id = IpUtil.getClientIp(request);
         System.out.println(id);
         List<History> historys = historyService.getHistoryById(id);
-        return new  ApiResponse<>(200, "Success!", historys);
+        return new  ApiResponse<>(200, "查询成功!", historys);
     }
 
     @PostMapping(value = "/setHistory")
@@ -42,7 +42,7 @@ public class HistoryController {
     public ApiResponse<Void> deleteData(HttpServletRequest request) {
         String id = IpUtil.getClientIp(request);
         historyService.deleteHistory(id);
-        return new ApiResponse<> (200, "保存成功！",null);
+        return new ApiResponse<> (200, "删除成功！",null);
     }
 }
 

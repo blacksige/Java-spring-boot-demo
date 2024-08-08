@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/nodeapp/enterData")
+@RequestMapping(value = "/nodeapp/enterdata")
 public class EnterDataController {
 
     @Autowired
@@ -39,6 +39,7 @@ public class EnterDataController {
     @PostMapping(value = "/deleteData")
     public ApiResponse<Void> deleteData(HttpServletRequest request) {
         String id = IpUtil.getClientIp(request);
+
         enterDataService.deleteEnterData(id);
         return new ApiResponse<> (200, "删除成功！",null);
     }
