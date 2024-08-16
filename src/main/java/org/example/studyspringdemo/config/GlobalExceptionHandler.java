@@ -1,5 +1,12 @@
+/**
+ * 全局异常捕捉
+ */
+
+
 package org.example.studyspringdemo.config;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -21,6 +28,8 @@ public class GlobalExceptionHandler {
 }
 
 // 定义一个错误响应类
+@Setter
+@Getter
 class ErrorResponse {
     private String error;
     private String msg;
@@ -30,20 +39,5 @@ class ErrorResponse {
         this.msg = msg;
     }
 
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
 }
 

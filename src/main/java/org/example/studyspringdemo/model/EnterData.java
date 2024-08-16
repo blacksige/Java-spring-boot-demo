@@ -1,8 +1,16 @@
+/**
+ * 实体类，录入内容模型
+ */
+
 package org.example.studyspringdemo.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Entity(name = "enterdata")
 @Data
 public class EnterData {
@@ -13,28 +21,5 @@ public class EnterData {
     private String  id;
     private String  textarea;
 
-    public Integer getIndex() {
-        return index;
-    }
-
-    public void setIndex(Integer index) {
-        this.index = index;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getTextarea() {
-        return textarea;
-    }
-
-    public void setTextarea(String textarea) {
-        this.textarea = textarea;
-    }
 }
 

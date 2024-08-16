@@ -1,3 +1,7 @@
+/**
+ * controller 处理前端请求并响应请求
+ */
+
 package org.example.studyspringdemo.controller;
 
 import jakarta.servlet.http.HttpServletRequest;

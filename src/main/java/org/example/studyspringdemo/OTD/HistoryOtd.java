@@ -1,20 +1,16 @@
+/**
+ * 暂存History请求体数据
+ */
+
 package org.example.studyspringdemo.OTD;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class HistoryOtd {
     private String name;
     private String day;
 
-    public String getName() {
-        return name;
-    }
-    public String getDay() {
-        return day;
-    }
-
-    public void setDay(String day) {
-        this.day = day;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
 }

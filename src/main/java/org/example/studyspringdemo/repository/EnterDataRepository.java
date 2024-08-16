@@ -1,3 +1,7 @@
+/**
+ * 进行数据库交流-定义数据库操作方法与sql语句
+ */
+
 package org.example.studyspringdemo.repository;
 
 import jakarta.transaction.Transactional;

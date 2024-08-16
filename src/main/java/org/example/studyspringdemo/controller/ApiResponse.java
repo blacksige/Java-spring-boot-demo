@@ -1,7 +1,17 @@
+/**
+ * 响应体-实体类
+ */
+
 package org.example.studyspringdemo.controller;
 
 
-class ApiResponse<T> {
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
+public class ApiResponse<T> {
+    // Getters and setters
     private int code;
     private String msg;
     private T data;
@@ -15,28 +25,4 @@ class ApiResponse<T> {
         this.data = data;
     }
 
-    // Getters and setters
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
 }
